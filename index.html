@@ -11,7 +11,7 @@
 
     <script>
         // Try fetching JSON from the same repo
-        vegaEmbed("#vis", "https://raw.githubusercontent.com/alexkchen/ds209_dataviz/main/fire_dashboard.json").then(result => {
+        vegaEmbed("#vis", "https://raw.githubusercontent.com/alexkchen/ds209_dataviz/main/fire_dashboard_fixed.json").then(result => {
             console.log("Dashboard loaded successfully!");
         }).catch(error => {
             document.getElementById("vis").innerHTML = "<p style='color:red;'>Error: Could not load the visualization.</p>";
