@@ -10,9 +10,13 @@
     <div id="vis"></div>
 
     <script>
+        // Try fetching JSON from the same repo
         vegaEmbed("#vis", "fire_dashboard.json").then(result => {
             console.log("Dashboard loaded successfully!");
-        }).catch(console.error);
+        }).catch(error => {
+            document.getElementById("vis").innerHTML = "<p style='color:red;'>Error: Could not load the visualization.</p>";
+            console.error("Error loading JSON:", error);
+        });
     </script>
 </body>
 </html>
