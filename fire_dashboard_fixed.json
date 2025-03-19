@@ -1,0 +1,223 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.20.1.json",
+  "config": {
+    "view": {
+      "continuousHeight": 300,
+      "continuousWidth": 300
+    }
+  },
+  "data": {
+    "format": {
+      "type": "json"
+    },
+    "url": "altair-data-09c1100dfc7f2fef9439f7d223536198.json"
+  },
+  "params": [
+    {
+      "name": "Select Fire Type",
+      "select": {
+        "fields": [
+          "Final_Incident_Category"
+        ],
+        "type": "point"
+      },
+      "views": [
+        "view_3"
+      ]
+    }
+  ],
+  "vconcat": [
+    {
+      "hconcat": [
+        {
+          "encoding": {
+            "color": {
+              "field": "Final_Incident_Category",
+              "scale": {
+                "scheme": "category10"
+              },
+              "title": "Fire Type",
+              "type": "nominal"
+            },
+            "tooltip": [
+              {
+                "field": "Final_Incident_Category",
+                "type": "nominal"
+              },
+              {
+                "aggregate": "count",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "Final_Incident_Category",
+              "title": "Fire Type",
+              "type": "nominal"
+            },
+            "y": {
+              "aggregate": "count",
+              "title": "Number of Incidents",
+              "type": "quantitative"
+            }
+          },
+          "mark": {
+            "type": "bar"
+          },
+          "name": "view_3",
+          "title": "\ud83d\udd25 Select a Fire Type",
+          "width": 500
+        },
+        {
+          "encoding": {
+            "color": {
+              "aggregate": "count",
+              "scale": {
+                "scheme": "blues"
+              },
+              "title": "Total Fire Incidents",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "Year",
+                "type": "quantitative"
+              },
+              {
+                "field": "Hour",
+                "type": "quantitative"
+              },
+              {
+                "aggregate": "count",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "Hour",
+              "title": "Hour of the Day",
+              "type": "ordinal"
+            },
+            "y": {
+              "field": "Year",
+              "title": "Year",
+              "type": "ordinal"
+            }
+          },
+          "mark": {
+            "type": "rect"
+          },
+          "title": "\ud83d\udd25 Fire Type Counts by Year and Hour",
+          "transform": [
+            {
+              "filter": {
+                "param": "Select Fire Type"
+              }
+            }
+          ],
+          "width": 500
+        }
+      ]
+    },
+    {
+      "hconcat": [
+        {
+          "encoding": {
+            "color": {
+              "field": "Final_Incident_Category",
+              "title": "Fire Type",
+              "type": "nominal"
+            },
+            "tooltip": [
+              {
+                "field": "Year",
+                "type": "quantitative"
+              },
+              {
+                "aggregate": "mean",
+                "field": "Total_Incident_Duration",
+                "type": "quantitative"
+              },
+              {
+                "field": "Final_Incident_Category",
+                "type": "nominal"
+              }
+            ],
+            "x": {
+              "field": "Year",
+              "title": "Year",
+              "type": "ordinal"
+            },
+            "y": {
+              "aggregate": "mean",
+              "field": "Total_Incident_Duration",
+              "title": "Avg Incident Duration (min)",
+              "type": "quantitative"
+            }
+          },
+          "mark": {
+            "point": true,
+            "type": "line"
+          },
+          "title": "\ud83d\udcca Yearly Response Time Trends",
+          "transform": [
+            {
+              "filter": {
+                "param": "Select Fire Type"
+              }
+            }
+          ],
+          "width": 500
+        },
+        {
+          "encoding": {
+            "color": {
+              "aggregate": "mean",
+              "field": "Travel_Time",
+              "scale": {
+                "scheme": "reds"
+              },
+              "title": "Avg Travel Time (min)",
+              "type": "quantitative"
+            },
+            "tooltip": [
+              {
+                "field": "Hour",
+                "type": "quantitative"
+              },
+              {
+                "field": "Year",
+                "type": "quantitative"
+              },
+              {
+                "aggregate": "mean",
+                "field": "Travel_Time",
+                "type": "quantitative"
+              }
+            ],
+            "x": {
+              "field": "Hour",
+              "title": "Hour of the Day",
+              "type": "ordinal"
+            },
+            "y": {
+              "field": "Year",
+              "title": "Year",
+              "type": "ordinal"
+            }
+          },
+          "mark": {
+            "type": "rect"
+          },
+          "title": "\ud83d\udd50 Intraday Response Time Trends",
+          "transform": [
+            {
+              "filter": {
+                "param": "Select Fire Type"
+              }
+            }
+          ],
+          "width": 500
+        }
+      ]
+    }
+  ]
+}
