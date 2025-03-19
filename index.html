@@ -11,7 +11,7 @@
 
     <script>
         // Ensure JSON file is accessible
-        vegaEmbed("#vis", "fire_dashboard_fixed_val.json").then(result => {
+        vegaEmbed("#vis", "fire_dashboard_fixed_val_compressed.json").then(result => {
             console.log("Dashboard loaded successfully!");
         }).catch(error => {
             document.getElementById("vis").innerHTML = "<p style='color:red;'>Error: Could not load the visualization.</p>";
